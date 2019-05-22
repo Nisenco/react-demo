@@ -1,0 +1,41 @@
+.table_wraper{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px 60px;
+}
+.table_add_user{
+    margin-bottom: 12px;
+}
+/* .table_content{
+
+} */
+.modal_wraper{
+    box-sizing: border-box;
+    /* padding: 24px; */
+}
+
+.modal_wraper>div{
+    margin-top: 12px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.modal_wraper>div:first-child{
+    margin-top: 0px;
+}
+.modal_wraper>div::before{
+    position: absolute;
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: red;
+    content: '';
+    top: 16px;
+    left:-8px;
+}
+.modal_wraper>div>input{
+    display: inline-block;
+    /* width: 200px; */
+    flex: 1;
+}
