@@ -6,7 +6,7 @@ class Test extends PureComponent {
 	constructor(props){
 		super(props);
 		this.state={
-			dataSource: [{ username: "slf", age: "18", address: "杭州", id: 1 }],
+			dataSource: [{ username: "slf", age: "18", address: "杭州", id: 1 },{ username: "slf", age: "18", address: "杭州", id: 2 }],
 			current: 1,
 			size: 10,
 			total: 1,
@@ -28,6 +28,14 @@ class Test extends PureComponent {
 			}
 		  }];
 	}
+	// 编辑弹出框
+	modal(type,row){
+		console.log(row,'row---');
+		this.setState({
+			visible:true,
+			modalType:type
+		})
+	}
 	handleOk =  e => {
 		this.setState({
 			visible: false,
@@ -40,15 +48,16 @@ class Test extends PureComponent {
 	};
 	addUser(){
 		this.setState({
+			modalType: "add",
 			visible:true
 		})
 	}
 	render(){
-		const {visible} = this.state;
+		const {visible,dataSource,modalType} = this.state;
 		return (<React.Fragment>
 					<div className="table_wraper">
 						<Modal
-							title="Basic Modal"
+							title={modalType == 'add' ? '添加用户':'编辑用户'}
 							visible={visible}
 							onOk={this.handleOk}
 							onCancel={this.handleCancel}
@@ -59,13 +68,12 @@ class Test extends PureComponent {
 								<div>地址：<Input placeholder="地址"/></div>
 							</div>
 						</Modal>
-						<div className="table_add_user"  onClick={this.addUser.bind(this)}><Button type="primary">添加用户</Button></div>
+						<div className="table_add_user" ><Button onClick={this.addUser.bind(this)} type="primary">添加用户</Button></div>
 						<div className="table_content">
-							{/* <Table
-
-							>
-
-							</Table> */}
+							<Table
+								dataSource={dataSource}
+								columns = {this.columns}
+							/>
 						</div>
 					</div>
 				</React.Fragment>
