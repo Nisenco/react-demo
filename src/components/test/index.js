@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import {Table, Pagination, Input, Row, Button, Modal, Form} from 'antd';
+import {Table, Pagination, Input, Row, Button, Modal, Form} from 'antd/lib/index';
 
 import './index.css';
 class Test extends PureComponent {
@@ -78,7 +78,7 @@ class Test extends PureComponent {
 					</div>
 				</React.Fragment>
 			)
-		
+
 	}
 };
 export default Test;
