@@ -274,6 +274,7 @@ module.exports = function(webpackEnv) {
         'react-native': 'react-native-web',
         'components': path.resolve(__dirname, '../src/components'),
         'reduxs': path.resolve(__dirname, '../src/redux'),
+        'assets': path.resolve(__dirname, '../src/assets'),
       },
       plugins: [
         // Adds support for installing with Plug'n'Play, leading to faster installs and adding
