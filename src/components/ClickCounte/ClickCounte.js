@@ -1,5 +1,6 @@
 import React, {PureComponent} from 'react';
-
+import store from 'components/redux/store.js';
+// import store from '/redux/store.js';
 class  ClickCounter extends PureComponent{
     constructor(props){
         super(props);
