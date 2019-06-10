@@ -1,13 +1,18 @@
 import * as ActionTypes  from './actionTypes.js';
-export const increase = (counterCaption)=>{
+const increase = (counterCaption)=>{
     return {
         type:ActionTypes.INCREAMENT,
         counterCaption:counterCaption
     }
 };
-export const decrease = (counterCaption)=>{
+const decrease = (counterCaption)=>{
     return {
         type:ActionTypes.DECREAMENT,
         counterCaption:counterCaption
     }
 };
+export default {
+    increase,
+    decrease
+};
+
