@@ -9,7 +9,7 @@ const CheckboxGroup = Checkbox.Group;
 *       {title:'可对比指标’，name: 'contrast'，num：4，data:[{label:'总声量’,value:'voice’},{label:'行业占比’,value:'voice’},{label:'传播指数’,value:'voice’},{label:'提及话题数’,value:'voice’},{label:'话题参与数’,value:'voice’},{label:'美誉指数’,value:'voice’}]}，
 *       {title:'非对比指标’，name: 'noncontrast'，num：2，data:[{label:'微博账号’,value:'voice’},{label:'粉丝数’,value:'voice’},{label:'人气指数’,value:'voice’}]}
 *     ]
-*
+*   selected:
 *   onChange  返回值 ['voice','voice']
 * */
 
@@ -21,10 +21,11 @@ class CustomMetrics extends PureComponent{
         this.changeData = this.changeData.bind(this);
         this.metricsConfirm = this.metricsConfirm.bind(this);
         this.metricsCancel = this.metricsCancel.bind(this);
+        this.tempSelect={};
         this.state = {
             show:false,
             list:this.props.list,
-            selectList:[]
+            selectList:this.props.selected || {contrast:["voice1","voice4","voice5","voice2"],noncontrast:["voice9","voice8"]}
         }
     }
     changeLists(){
@@ -33,12 +34,15 @@ class CustomMetrics extends PureComponent{
             show:!show
         })
     }
-    changeData(value){
-        console.log(value,'changeData')
+    changeData(name,value){
+        console.log(value,'changeData');
+        console.log(name,'name');
+        this.tempSelect[name] = value;
+        console.log(this.tempSelect,'this.tempSelect');
         this.setState({
-            selectList:value
+            selectList:this.tempSelect
         },()=>{
-            console.log(this.state.selectList)
+            console.log(this.state.selectList,'000000')
         })
     }
     //確定
@@ -50,6 +54,7 @@ class CustomMetrics extends PureComponent{
         },()=>{
             if(onChange){
                 onChange(selectList);
+                // onChange(this.tempSelect);
             }
         })
     }
@@ -61,8 +66,9 @@ class CustomMetrics extends PureComponent{
     }
     render(){
         const {title,list} = this.props;
-        const {show} = this.state;
-        return(<div className="custom_metrics_wraper" onMouseLeave={this.metricsCancel}>
+        const {show,selectList} = this.state;
+        return(<div className="custom_metrics_wraper" >
+            {/*onMouseLeave={this.metricsCancel}*/}
             <div className='custom_metrics_title' onClick={this.changeLists} >
                 <img src={icon_pp_ziding}/> {title}
             </div>
@@ -77,7 +83,7 @@ class CustomMetrics extends PureComponent{
                                             <span>{item.title} </span>
                                             <span>（選擇{item.num}個）</span>
                                         </div>
-                                        <CheckboxGroup onChange={this.changeData} options={item.data}/>
+                                        <CheckboxGroup onChange={this.changeData.bind(this,item.name)} defaultValue={selectList[item.name]} options={item.data}/>
                                     </React.Fragment>
 
                                 )
@@ -90,7 +96,6 @@ class CustomMetrics extends PureComponent{
                     </div>
                 </div>:null
             }
-
         </div>)
     }
 }
