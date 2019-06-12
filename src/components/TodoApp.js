@@ -1,10 +1,10 @@
 import React from 'react';
-import {view as Todos} from  'components/todos';
-import {view as Filter} from  'components/filter';
+import {views as Todos} from  'components/todos';
+// import {view as Filter} from  'components/filter';
 function TodoApp(){
     return (<div>
         <Todos/>
-        <Filter/>
+        {/*<Filter/>*/}
     </div>)
 }
 export default TodoApp;
