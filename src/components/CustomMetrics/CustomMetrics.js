@@ -9,7 +9,7 @@ const CheckboxGroup = Checkbox.Group;
 *       {title:'可对比指标’，name: 'contrast'，num：4，data:[{label:'总声量’,value:'voice’},{label:'行业占比’,value:'voice’},{label:'传播指数’,value:'voice’},{label:'提及话题数’,value:'voice’},{label:'话题参与数’,value:'voice’},{label:'美誉指数’,value:'voice’}]}，
 *       {title:'非对比指标’，name: 'noncontrast'，num：2，data:[{label:'微博账号’,value:'voice’},{label:'粉丝数’,value:'voice’},{label:'人气指数’,value:'voice’}]}
 *     ]
-*   selected:
+*   selected: {contrast:["voice1","voice4","voice5","voice2"],noncontrast:["voice9","voice8"]}
 *   onChange  返回值 ['voice','voice']
 * */
 
@@ -35,14 +35,9 @@ class CustomMetrics extends PureComponent{
         })
     }
     changeData(name,value){
-        console.log(value,'changeData');
-        console.log(name,'name');
         this.tempSelect[name] = value;
-        console.log(this.tempSelect,'this.tempSelect');
         this.setState({
             selectList:this.tempSelect
-        },()=>{
-            console.log(this.state.selectList,'000000')
         })
     }
     //確定
