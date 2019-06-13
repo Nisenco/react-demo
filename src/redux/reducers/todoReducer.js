@@ -1,7 +1,8 @@
+import {ADD_TODO,TOGGLE_TODO,REMOVE_TODO}from '../actionTypes/todoActionTypes';
 const todos = (state= [],action)=>{
     console.log(action,'todos++avtion++');
     switch(action.type){
-        case 'ADD_TODO':
+        case ADD_TODO:
             return [
                 ...state,
                 {
