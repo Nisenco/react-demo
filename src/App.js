@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import 'antd/dist/antd.css';
-// import {Provider} from 'react-redux';
-import TodoList from 'components/Todo/TodoList.js';
-import Store from './redux/stores.js';
+import {Provider} from 'react-redux';
+import TodoList from 'containers/TodoList.js';
+import VisibleTodoList from  'containers/visibleTodoList';
+import Store from './reducers/stores.js';
 import CustomMetrics from 'components/CustomMetrics/CustomMetrics.js';
 
 const list = [
@@ -20,9 +21,10 @@ class App extends Component {
       <div className="App">
           <div style={{padding:'100px'}}>
               <CustomMetrics title={"自定义指标"} list = {list}/>
-              {/*<Provider store={Store}>*/}
-                  <TodoList store={Store}/>
-              {/*</Provider>*/}
+              <Provider store={Store}>
+                  <TodoList />
+                  <VisibleTodoList/>
+              </Provider>
           </div>
       </div>
     );
