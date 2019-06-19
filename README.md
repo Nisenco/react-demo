@@ -9,7 +9,7 @@ src
     assets 静态文件
     components -- 展示组件 （Dumb 组件）
     containers -- 容器组件 （Smart 组件）
-    redux -- 存放 action, actionTypes, reducer等文件
+    reducers -- 存放 action, actionTypes, reducer等文件
     index.js 入口文件 
 ````
 ## Available Scripts
