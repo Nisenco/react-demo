@@ -7,12 +7,15 @@ export const addTodo = (text)=>({
     text:text,
 });
 
-// export const toggleTodo = (id)=({
-//     type: TOGGLE_TODO,
-//     id:id,
-// });
-// export const removeTodo = (id)=({
-//     type: REMOVE_TODO,
-//     id:id,
-// });
+export const toggleTodo = (id)=>{
+    console.log(id,'000');
+    return{
+        type: TOGGLE_TODO,
+        id:id,
+    }
+};
+export const removeTodo = (id)=>({
+    type: REMOVE_TODO,
+    id:id,
+});
 

@@ -275,6 +275,7 @@ module.exports = function(webpackEnv) {
         'components': path.resolve(__dirname, '../src/components'),
         'reducers': path.resolve(__dirname, '../src/reducers'),
         'assets': path.resolve(__dirname, '../src/assets'),
+        'actions': path.resolve(__dirname, '../src/actions'),
         'containers':path.resolve(__dirname, '../src/containers'),
       },
       plugins: [

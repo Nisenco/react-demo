@@ -1,6 +1,6 @@
 import {connect} from "react-redux";
 import List from './list';
-import {switchCase} from "@babel/types";
+import {toggleTodo} from '../reducers/actions/todoAction.js';
 
 const getVisibleTodoList = (todos,filter = "SHOW_ALL")=>{
     switch (filter){
@@ -15,15 +15,16 @@ const mapStateToProps = (state)=>{
         todos:getVisibleTodoList(state.todos),
     }
 };
-// const mapDispatchToProps = (dispatch)=>{
-//     return {
-//         onTodoClick: (id) => {
-//             dispatch(toggleTodo(id));
-//         },
-//     }
-// };
+const mapDispatchToProps = (dispatch)=>{
+    return {
+        onTodoClick: (id) => {
+            console.log(id,'9999');
+            dispatch(toggleTodo(id));
+        },
+    }
+};
 const VisibleTodoList = connect(
     mapStateToProps,
-    // mapDispatchToProps
+    mapDispatchToProps
 )(List);
 export default VisibleTodoList;

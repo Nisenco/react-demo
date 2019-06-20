@@ -11,6 +11,13 @@ const todos = (state= [],action)=>{
                     completed: false
                 }
             ];
+        case TOGGLE_TODO:
+            return state.map(item=>{
+                if(action.id === item.id){
+                    item.completed = !item.completed
+                }
+                return item;
+            });
         default:
             return state;
     }
