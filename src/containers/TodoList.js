@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react';
 import {Button,Input} from "antd";
 import {connect} from "react-redux";
-import {addTodo} from 'reducers/actions/todoAction';
+import {addTodo} from '../reducers/actions/todoAction';
 
 // import Store from "../reducers/stores";
 
