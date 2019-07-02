@@ -1,0 +1,68 @@
+.notScroll {
+    overflow: hidden;
+}
+.brands-chosen-wraper{
+    font-family: PingFangSC-Regular;
+    font-size: 13px;
+    color: #777AB7;
+}
+.brands-chosen-title{
+    padding: 6px 18px;
+    box-sizing: border-box;
+    border: 1px solid #2F326A;
+    border-radius: 3px;
+    display: inline-block;
+    margin-right: 8px;
+    cursor: pointer;
+}
+.brands-chosen-modal{
+    position:fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    background-color: rgba(28,30,66,0.8);
+}
+.brands-chosen-modal-content{
+    width: 60%;
+    height: 70%;
+    border: 1px solid #ffffff;
+    margin: 0 auto;
+    z-index: 10001;
+    color: #ffffff;
+    position: fixed;
+    top: 8%;
+    left: 20%;
+    overflow-y: hidden;
+}
+.content-left{
+    float: left;
+    width: 25%;
+    height: 100%;
+    box-sizing: border-box;
+}
+.content-right{
+    box-sizing: border-box;
+    height: 800px;
+    width: 75%;
+    overflow-y: auto;
+}
+
+
+
+/*滚动条样式更改*/
+.content-right::-webkit-scrollbar {/*滚动条整体样式*/
+    width: 8px;     /*高宽分别对应横竖滚动条的尺寸*/
+    height: 18px;
+}
+.content-right::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+    border-radius: 10px;
+    background: #777AB7;
+}
+.content-right::-webkit-scrollbar-track {/*滚动条里面轨道*/
+    border-radius: 10px;
+    background: #2F326A;
+}
