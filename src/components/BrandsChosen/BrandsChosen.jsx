@@ -3,9 +3,8 @@ import {createPortal} from 'react-dom';
 import Axios from 'axios';
 import {message} from 'antd';
 import './BrandsChosen.css';
-const AppRoot =  document.getElementById('root');
-// console.log(AppRoot,'poop');
 const doc = window.document;
+const Anchors = [{id:'A',name:'ABCD'},{id:'E',name:'EFGH'},{id:'H',name:'HIGK'},{id:'L',name:'LMNO'},{id:'Q',name:'QRST'},{id:'U',name:'UVWX'},{id:'Y',name:'YZ'}];
 class BrandsChosen extends PureComponent {
     constructor(props) {
         super(props);
@@ -56,6 +55,10 @@ class BrandsChosen extends PureComponent {
         });
     }
 
+    changeAnchor = (e)=>{
+        // const value = e.target.value;
+        console.log(e,'value');
+    };
     showModal=()=>{
         const {visible} = this.state;
         this.setState({
@@ -64,6 +67,9 @@ class BrandsChosen extends PureComponent {
     };
     render() {
         const {visible} = this.state;
+        const anchorLists = Anchors.map(item=>{
+            return <span key={item.id} className="content-anchor" value={item.id} onClick={this.changeAnchor.bind(this,item.id)}>{item.name}</span>
+        }) ;
         return (<div className="brands-chosen-wraper">
             <div>
                 <span className="brands-chosen-title" onClick={this.showModal}>按合作品牌筛选</span>
@@ -75,69 +81,84 @@ class BrandsChosen extends PureComponent {
                 visible? createPortal(<div>
                     <div className="brands-chosen-modal" onClick={this.showModal} />
                     <div className="brands-chosen-modal-content">
-                        <div className="content-left">00000</div>
-                        <div className="content-right">000008889
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
-                            <div>000008889</div>
+                        <div className="modal-content-wraper">
+                            <div>
+                                <div className="content-left">00000</div>
+                                <div className="content-right">
+                                    <div className="content-right-options"><span>按字母选择：</span>
+                                        {
+                                            anchorLists
+                                        }
+                                    </div>
+                                    <div className="modal-right-content">
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                        <div>000008889</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='modal-content-bottom'>
+                                nisang
+                            </div>
                         </div>
+
                     </div>
                 </div>,this.node):null
             }
