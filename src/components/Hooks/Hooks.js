@@ -12,7 +12,8 @@ import {Button} from "antd";
  * const [todos, setTodos] = useState([{ text: 'Learn Hooks' }]);
  *
  * Effect Hook
- *  useEffect 就是一个Effect Hook ，给函数组件添加了操作副作用的能力。 它跟class 组件中的componentDidMount,componentDidUpdate和componentWillUnmount具有相同的用途，只不过是被合并成一个API
+ *  useEffect 就是一个Effect Hook ，给函数组件添加了操作副作用的能力。
+ *  它跟class 组件中的componentDidMount,componentDidUpdate和componentWillUnmount具有相同的用途，只不过是被合并成一个API
  *  当调用useEffect 时，就是告诉React 完成DOM更改后运行你的 “副作用函数”。
  *  由于副作用函数是在组件内部生命，所以他们可以访问组件的props 和 state。默认情况下，React 会在每次渲染后调用副作用函数--包括第一次渲染的时候
  *
