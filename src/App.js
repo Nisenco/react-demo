@@ -6,6 +6,7 @@ import TodoList from 'containers/TodoList.js';
 import VisibleTodoList from 'containers/visibleTodoList';
 import BrandsChosen from 'components/BrandsChosen/BrandsChosen.jsx';
 import Store from './reducers/stores.js';
+import Hooks from "./components/Hooks/Hooks";
 // import CustomMetrics from 'components/CustomMetrics/CustomMetrics.js';
 
 // const list = [
@@ -31,6 +32,7 @@ class App extends Component {
                 <div style={{padding: '100px'}}>
                     {/*<CustomMetrics title={"自定义指标"} list = {list}/>*/}
                     <BrandsChosen url={`*****`} onChange={this.brandsChosen}/>
+                    <Hooks/>
                     <div style={{marginTop: 20}}>
                         <Provider store={Store}>
                             <TodoList/>

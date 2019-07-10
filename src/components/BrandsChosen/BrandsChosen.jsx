@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react';
 import {createPortal} from 'react-dom';
 import Axios from 'axios';
-import {message} from 'antd';
+import {message,Button} from 'antd';
 import './BrandsChosen.css';
 const doc = window.document;
 const Anchors = [{id:'A',name:'ABCD'},{id:'E',name:'EFGH'},{id:'H',name:'HIGK'},{id:'L',name:'LMNO'},{id:'Q',name:'QRST'},{id:'U',name:'UVWX'},{id:'Y',name:'YZ'}];
@@ -14,6 +14,7 @@ class BrandsChosen extends PureComponent {
         this.state = {
             visible: this.props.visible || false,
             data: {},
+            change:false,
             selectData: {},
         }
     }
@@ -59,6 +60,15 @@ class BrandsChosen extends PureComponent {
         // const value = e.target.value;
         console.log(e,'value');
     };
+    divClick=()=>{
+        this.setState({
+            change:false
+        })
+    };
+    handleButton=(e)=>{
+        // e.stopPropagation();
+        console.log('9999');
+    };
     showModal=()=>{
         const {visible} = this.state;
         this.setState({
@@ -66,7 +76,7 @@ class BrandsChosen extends PureComponent {
         })
     };
     render() {
-        const {visible} = this.state;
+        const {visible,change} = this.state;
         const anchorLists = Anchors.map(item=>{
             return <span key={item.id} className="content-anchor" value={item.id} onClick={this.changeAnchor.bind(this,item.id)}>{item.name}</span>
         }) ;
@@ -83,7 +93,13 @@ class BrandsChosen extends PureComponent {
                     <div className="brands-chosen-modal-content">
                         <div className="modal-content-wraper">
                             <div>
-                                <div className="content-left">00000</div>
+                                <div className="content-left">
+                                    <div
+                                        onClick={this.divClick}
+                                        style ={{height:48,width:'100%',background:`${change? '#333':''}`}} >
+                                        <Button onClick={this.handleButton}> 点击</Button>
+                                    </div>
+                                </div>
                                 <div className="content-right">
                                     <div className="content-right-options"><span>按字母选择：</span>
                                         {
