@@ -10,7 +10,13 @@ import './MultiSelect.css';
 class MultiSelect extends PureComponent {
     constructor(props){
         super(props);
+        this.selectConfirm = this.selectConfirm.bind(this);
+        this.selectCancel = this.selectCancel.bind(this);
+        this.selectCheckbox = this.selectCheckbox.bind(this);
+        this.changeData = this.changeData.bind(this);
         this.state = {
+            show:false,
+            selectData:['1','2','3'],
             data:[
                 { label: '暴跌', value: '1' },
                 { label: '下跌', value: '2' },
@@ -23,26 +29,64 @@ class MultiSelect extends PureComponent {
         }
 
     }
+    //点击文字
+    selectCheckbox(){
+        const {show} =this.state;
+        this.setState({
+            show:!show
+        })
+    }
+    changeData(checkedValues){
+        // 返回值  ['1','2'] 数组形式
+        console.log(checkedValues,'checkedValues');
+        this.setState({
+            selectData:checkedValues
+        })
+    }
+    //确认
+    selectConfirm(){
+        const {onChange} = this.props;
+        const {selectData} = this.state;
+        this.setState({
+            show:false
+        },()=>{
+            if(onChange){
+                onChange(selectData);
+            }
+        })
+
+    }
+    // 取消
+    selectCancel(){
+        this.setState({
+            show:false
+        })
+    }
     render (){
-        const {data} = this.state;
+        const {data,show,selectData} = this.state;
         const {title}  = this.props;
         return <div className="multiSelect_wraper">
-            <div className="multiSelect_input_wraper">
-                {title}：<span>全部 <img src={icon_xiala}/></span>
+            <div className="multiSelect_input_wraper" onClick={this.selectCheckbox}>
+                {title}：<span>{
+                selectData.length == data.length ? '全部' : '部分'
+            } <img src={icon_xiala}/></span>
                 {/*<Input className="multiSelect_input"/>*/}
             </div>
-            <div className="multiSelect_checkbox">
-                <div>
-                    <Checkbox.Group
-                        options={data}
-                    />
-                </div>
-                <div className="multiSelect_option">
-                    <button className="multiSelect_confirm">确定</button>
-                    <button className="multiSelect_cancel">取消</button>
-                </div>
-            </div>
-
+            {
+                show? <div className="multiSelect_checkbox">
+                    <div>
+                        <Checkbox.Group
+                            onChange = {this.changeData}
+                            defaultValue={selectData}
+                            options={data}
+                        />
+                    </div>
+                    <div className="multiSelect_option">
+                        <button className="multiSelect_confirm" onClick={this.selectConfirm}>确定</button>
+                        <button className="multiSelect_cancel" onClick={this.selectCancel}>取消</button>
+                    </div>
+                </div>:null
+            }
         </div>
     }
 }

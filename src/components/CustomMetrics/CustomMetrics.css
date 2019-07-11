@@ -1,0 +1,81 @@
+.custom_metrics_wraper{
+    position: relative;
+    font-family: PingFangSC-Regular;
+    font-size: 12px;
+}
+.custom_metrics_title{
+    color: #656A9F;
+    background: #1D1F4A;
+    border: 1px solid #2F326A;
+    border-radius: 3px;
+    width: 100px;
+    line-height: 26px;
+    height: 28px;
+    box-sizing: border-box;
+    padding-left: 6px;
+    cursor: pointer;
+    user-select: none;
+}
+.custom_metrics_title >img {
+    vertical-align: text-top;
+    margin-right: 2px;
+}
+.custom_metrics_content{
+    position: absolute;
+    top: 30px;
+    left: 0;
+    min-height: 60px;
+    background: #27295D;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.28);
+    border-radius: 2px;
+    color: #777AB7;
+    width: 440px;
+    padding: 0 20px 12px;
+}
+.custom_metrics_option > button{
+    width: 72px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    font-size: 12px;
+    color: #DDE4F2;
+    border-radius: 3px;
+    border-style: none;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    cursor: pointer;
+}
+.custom_metrics_option{
+    margin-top: 12px;
+}
+.custom_metrics_option > button:first-child{
+    background: #1B77EB;
+    margin-right: 24px;
+}
+.custom_metrics_option > button:last-child{
+    background: #262860;
+    border: 1px solid #2F326A;
+}
+.custom_metrics_content{
+    color: #777AB7;
+}
+.custom_metrics_content .ant-checkbox-group{
+    width: 100%;
+}
+.custom_metrics_content .ant-checkbox-group-item{
+    width:33.2%;
+    color: #777AB7;
+    height: 38px;
+    line-height: 38px;
+    margin-right: 0;
+    border-bottom: 1px solid #2C2E67;
+}
+.metrics_content_title{
+    text-align: justify;
+    border-bottom: 1px solid #2C2E67;
+    height: 40px;
+    line-height: 40px;
+    display: flex;
+    justify-content: space-between;
+}
