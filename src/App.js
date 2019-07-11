@@ -39,6 +39,7 @@ class App extends Component {
                             <VisibleTodoList/>
                         </Provider>
                     </div>
+                    <div>123</div>
                 </div>
             </div>
         );
