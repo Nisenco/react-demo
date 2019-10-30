@@ -1,5 +1,17 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+#### 文件目录
+````
+config --文件配置项
+public -- 存放文件
+script -- react 自带运行脚本 
+src 
+    assets 静态文件
+    components -- 展示组件 （Dumb 组件）
+    containers -- 容器组件 （Smart 组件）
+    reducers -- 存放 action, actionTypes, reducer等文件
+    index.js 入口文件 
+````
 ## Available Scripts
 
 In the project directory, you can run:
@@ -66,3 +78,4 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+

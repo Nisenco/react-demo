@@ -19,6 +19,7 @@
 .multiSelect_input_wraper img{
     display: inline-block;
     margin-left: 6px;
+    user-select: none;
 }
 .multiSelect_input{
     background: #1D1F4A;

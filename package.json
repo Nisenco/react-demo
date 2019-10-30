@@ -49,7 +49,9 @@
     "react-app-polyfill": "^1.0.1",
     "react-dev-utils": "^9.0.1",
     "react-dom": "^16.8.4",
-    "react-router": "^5.0.0",
+    "react-router": "^5.0.1",
+    "react-router-dom": "^5.0.1",
+    "react-router-redux": "^4.0.8",
     "redux": "^4.0.1",
     "resolve": "1.10.0",
     "sass-loader": "7.1.0",
@@ -78,7 +80,8 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "mongoose": "^5.5.7"
+    "mongoose": "^5.5.7",
+    "react-redux": "^7.1.0"
   },
   "jest": {
     "collectCoverageFrom": [
