@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
-import { createStore,combineReducers} from 'redux';
-import { Provider } from 'react-redux';
+// import { createStore,combineReducers} from 'redux';
+// import { Provider } from 'react-redux';
 import Ckeditor from 'containers/Ckeditor';
 import './App.css';
 import 'antd/dist/antd.css';
 // import Hooks from "./components/Hooks/Hooks";
-const Store = createStore({});
-Store.subscribe(() => {
-  console.log(Store.getState(), 'changeState');
-});
+
+// const Store = createStore();
+// Store.subscribe(() => {
+//   console.log(Store.getState(), 'changeState');
+// });
+
 // const indexReducers = combineReducers({todos,visibilityFilter});
 class App extends Component {
   constructor(props) {
@@ -17,9 +19,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Provider store = {Store}>
+        {/* <Provider store = {Store}> */}
           <Ckeditor />
-        </Provider>
+        {/* </Provider> */}
       </div>
     );
   }
