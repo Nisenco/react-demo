@@ -5,6 +5,7 @@ import Ckeditor from 'containers/Ckeditor';
 import './App.css';
 import 'antd/dist/antd.css';
 // import Hooks from "./components/Hooks/Hooks";
+import Routes from 'routes';
 
 // const Store = createStore();
 // Store.subscribe(() => {
@@ -22,6 +23,7 @@ class App extends Component {
         {/* <Provider store = {Store}> */}
           <Ckeditor />
         {/* </Provider> */}
+        <Routes />
       </div>
     );
   }
