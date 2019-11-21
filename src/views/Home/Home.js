@@ -1,13 +1,16 @@
-import React,{PureComponent} from 'react';
-class Home extends  PureComponent{
-    constructor(props){
-        super(props);
-    }
+import React, { PureComponent } from 'react';
+// import CusQuill from '../../containers/Quill';
+import CusWysiwyg from '../../containers/Wysiwyg';
+class Home extends PureComponent {
+  constructor(props) {
+    super(props);
+  }
 
-    render(){
-        return (<div>
-            home
-        </div>)
-    }
+  render() {
+    return (<div>
+      {/* <CusQuill /> */}
+      <CusWysiwyg />
+    </div>)
+  }
 }
 export default Home;
