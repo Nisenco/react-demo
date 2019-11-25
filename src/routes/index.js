@@ -21,7 +21,7 @@ const Routes = () => {
 					</li>
 				</ul>
 				<Switch>
-					<Route path='/' > <Home /> </Route>
+					<Route exact path='/' > <Home /> </Route>
 					<Route path='/detail' ><Detail /></Route>
 				</Switch>
 			</Router>
