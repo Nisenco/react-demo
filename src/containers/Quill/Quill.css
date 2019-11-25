@@ -1,0 +1,10 @@
+.ql-formats .ql-text{
+    content:'*';
+    background: red !important;
+}
+.ql-snow.ql-toolbar .ql-sourceEditor{
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-top: 12px solid red;
+}
