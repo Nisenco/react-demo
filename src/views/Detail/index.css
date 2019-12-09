@@ -1,0 +1,6 @@
+.detail_wraper .ant-select-selection__placeholder{
+  display: block !important;
+}
+.detail_wraper .ant-select-selection-selected-value{
+  display: none !important;
+}
