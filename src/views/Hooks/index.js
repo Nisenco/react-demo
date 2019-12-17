@@ -20,6 +20,10 @@ export default class Hooks extends PureComponent{
           io.unobserve(item.target)	
         }
       })
+    },{
+      root:document.querySelector('.box_wraper'),
+      rootMargin: '0px', 
+      threshold: 1.0
     });
     Array.from(this.boxEle).map(item=>io.observe(item))
   }
