@@ -17,6 +17,8 @@ export default class Hooks extends PureComponent{
       entry.forEach(item=>{
         if(item.isIntersecting){
           console.log(item.target);
+          // io.unobserve 停止观察一个元素
+          // io.disconnect() 停止观察所有元素
           io.unobserve(item.target)	
         }
       })
