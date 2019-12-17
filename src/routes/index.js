@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import Home from "../views/Home/Home.js";
 import Detail from "../views/Detail/Detail.js";
+import Hooks from  "../views/Hooks";
 const Routes = () => {
 	return (
 		<div>
@@ -19,10 +20,14 @@ const Routes = () => {
 					<li>
 						<Link to='/detail'>Detail</Link>
 					</li>
+					<li>
+						<Link to='/hooks'> test hooks</Link>
+					</li>
 				</ul>
 				<Switch>
 					<Route exact path='/' > <Home /> </Route>
 					<Route path='/detail' ><Detail /></Route>
+					<Route path='/hooks' ><Hooks /></Route>
 				</Switch>
 			</Router>
 		</div>
