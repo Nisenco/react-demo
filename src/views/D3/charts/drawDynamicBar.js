@@ -22,11 +22,12 @@ const y = (margin,n)=>{
     .padding(0.1);
 }
 var datevalues = (data)=>{
-	console.log(data,'<=data');
-	var _data =  Array.from(d3.rollup(data, ([d]) => d.value, d => +d.date, d => d.name))
-	  .map(([date, data]) => [new Date(date), data])
-	  .sort(([a], [b]) => d3.ascending(a, b));
-  console.log(_data,'-data');
+	console.log(data,'33');
+	console.log(d3.rollup(data,([d]) => d.value, d => new Date(d.date), d => d.name),'d3.rollup(data, ([d]) => d.value, d => +d.date, d => d.name)');
+	var _data =  Array.from(d3.rollup(data, ([d]) => d.value, d => new Date(d.date), d => d.name));
+	  // .map(([date, data]) => [new Date(date), data])
+	  // .sort(([a], [b]) => d3.ascending(a, b));
+  	console.log(_data,'-data');
 	return _data;
 }
 
@@ -40,16 +41,17 @@ var rank = (data,value)=>{
 }
 var keyframes = (data)=>{
 	const keyframes = [];
-
+	console.log(data,'111');
+	console.log(datevalues(data),'22')
 	let ka, a, kb, b;
 	for ([[ka, a], [kb, b]] of d3.pairs(datevalues(data))) {
-		for (let i = 0; i < k; ++i) {
-		  const t = i / k;
-		  keyframes.push([
-		    new Date(ka * (1 - t) + kb * t),
-		    rank(data,name => (a.get(name) || 0) * (1 - t) + (b.get(name) || 0) * t)
-		  ]);
-		}
+		// for (let i = 0; i < k; ++i) {
+		//   const t = i / k;
+		//   keyframes.push([
+		//     new Date(ka * (1 - t) + kb * t),
+		//     rank(data,name => (a.get(name) || 0) * (1 - t) + (b.get(name) || 0) * t)
+		//   ]);
+		// }
 	}
   keyframes.push([new Date(kb), rank(data,name => b.get(name) || 0)]);
   return keyframes;
@@ -72,7 +74,7 @@ const color =function(data){
   }
   return d => scale(d.name);
 }
-const bar = (svg,n,data)=>{
+const bar = (svg,n,data,config)=>{
 	let bar  = svg.append('g')
 		.attr('fill-opacity',0.6)
 		.selectAll('rect');
@@ -81,19 +83,19 @@ const bar = (svg,n,data)=>{
 		.join(
 			enter => enter.append("rect")
 				.attr("fill", color(data))
-				.attr("x", x(0))
-				.attr("y", d => y((prev.get(d) || d).rank))
-				.attr("width", d => x((prev.get(d) || d).value) - x(0))
+				.attr("x", x(0,config))
+				.attr("y", d => y((prev.get(d) || d).rank,config))
+				.attr("width", d => x((prev.get(d) || d).value,config) - x(0,config))
 				.attr("height", y.bandwidth()),
 			update => update,
 			exit => exit.transition(transition).remove()
-				.attr("y", d => y((next.get(d) || d).rank))
-				.attr("width", d => x((next.get(d) || d).value) - x(0))
+				.attr("y", d => y((next.get(d) || d).rank,config))
+				.attr("width", d => x((next.get(d) || d).value,config) - x(0,config))
 		)
 		.call(
 			bar => bar.transition(transition)
-			.attr("y", d => y(d.rank))
-			.attr("width", d => x(d.value) - x(0))
+			.attr("y", d => y(d.rank,config))
+			.attr("width", d => x(d.value,config) - x(0,config))
 		);
 }
 
@@ -106,19 +108,18 @@ const drawDynamicBar = function(id,data,config){
 		.attr('width',width)
 		.attr('height',height);
 		console.log(width,height);
-	const updateBars = bar(svg,n, data);
+	const updateBars = bar(svg,n, data,config);
 	// yield svg.node();
-
 	for (const keyframe of keyframes(data)) {
-		// const transition = svg.transition()
-		//     .duration(duration)
-		//     .ease(d3.easeLinear);
+		const transition = svg.transition()
+		    .duration(duration)
+		    .ease(d3.easeLinear);
 
 		// // Extract the top bar’s value.
 		// x.domain([0, keyframe[1][0].value]);
 
 		// // updateAxis(keyframe, transition);
-		// updateBars(keyframe, transition);
+		updateBars(keyframe, transition);
 		// // updateLabels(keyframe, transition);
 		// // updateTicker(keyframe, transition);
 
