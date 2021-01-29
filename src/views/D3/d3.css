@@ -44,9 +44,9 @@
 .h-bar{
 	display:block;
 	margin-top:6px;
-	/* background-color:black; */
+	background-color:black;
 	text-align: right;
-	/* color: white; */
+	color: white;
 }
 .v-bar{
 	width: 30px;
@@ -54,4 +54,8 @@
 	margin-right: 6px;
 	background-color:#999;
 	text-align: center;
+}
+.selected{
+	background-color:#999;
+	color: white;
 }
