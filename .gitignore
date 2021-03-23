@@ -11,6 +11,8 @@
 
 # production
 /build
+/backend/venv
+/backend/.idea
 
 # misc
 .DS_Store

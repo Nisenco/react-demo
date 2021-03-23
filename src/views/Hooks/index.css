@@ -3,7 +3,7 @@
   width: 100%;
   overflow-y: auto;
 }
-.box{
+.box_wraper .box{
   height: 38px;
   width: 100%;
   border-bottom: 1px solid red;

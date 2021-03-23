@@ -11,6 +11,8 @@ import Detail from "../views/Detail/Detail.js";
 import Hooks from  "../views/Hooks";
 import D3 from '../views/D3';
 import TestEcharts from '../views/Echart';
+import TestReact from '../views/TestReact';
+
 import './router.css';
 const Routes = () => {
 	return (
@@ -32,6 +34,9 @@ const Routes = () => {
 					<li>
 						<Link to='/echart'> test Echarts</Link>
 					</li>
+					<li>
+						<Link to='/testReact'> test React</Link>
+					</li>
 				</ul>
 				<Switch>
 					<Route exact path='/' > <Home /> </Route>
@@ -39,6 +44,7 @@ const Routes = () => {
 					<Route path='/hooks' ><Hooks /></Route>
 					<Route path='/d3' ><D3 /></Route>
 					<Route path='/echart' ><TestEcharts /></Route>
+					<Route path='/testReact' ><TestReact /></Route>
 				</Switch>
 			</Router>
 		</div>
