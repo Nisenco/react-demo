@@ -2,6 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 #### 文件目录
 ````
+backend -- 后端api接口
 config --文件配置项
 public -- 存放文件
 script -- react 自带运行脚本 
