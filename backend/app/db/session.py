@@ -1,19 +1,36 @@
-# 链接数据库
-
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy.ext.declarative import declarative_base
-from db.config import SQLALCHEMY_DATABASE_URI
-
-engine = create_engine(SQLALCHEMY_DATABASE_URI)
-sessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-
-Base = declarative_base()
+from typing import List, Optional
+from pydantic import BaseModel
 
 
-def get_db():
-    db = sessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
+class ItemBase(BaseModel):
+    title: str
+    description: Optional[str] = None
+
+
+class ItemCreate(ItemBase):
+    pass
+
+
+class Item(ItemBase):
+    id: id
+    owner_id: int
+
+    class Config:
+        orm_mode = True
+
+
+class UserBase(BaseModel):
+    email: str
+
+
+class UserCreate(UserBase):
+    password: str
+
+
+class User(UserBase):
+    id: int
+    is_active: bool
+    items: [list[str]] = []
+
+    class Config:
+        orm_mode = True
