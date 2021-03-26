@@ -13,6 +13,7 @@
 /build
 /backend/venv
 /backend/.idea
+/backend/app/__pycache__
 
 # misc
 .DS_Store
