@@ -34,6 +34,9 @@ function Hooks (){
     useEffect(()=>{
         // 使用浏览器API 更新页面标题
         document.title = `${count} &nbsb; times` ;
+        return ()=>{
+            document.title = `count is destoried` ;
+        }
     });
     return (<div>
         <p style={{color:'#fff'}}>you click {count} times</p>
