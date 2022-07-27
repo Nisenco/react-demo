@@ -1,6 +1,8 @@
 import React,{ useState ,useEffect} from 'react';
 import {withRouter} from 'react-router-dom';
 import {Button} from 'antd';
+import videojs from 'video.js';
+import 'video.js/dist/video-js.css';
 import './index.css';
 
 const data =[
@@ -22,7 +24,11 @@ function Hooks(props){
   const [count,setCount] = useState(0);
   useEffect(()=>{
     document.title = `you clicked ${count} times`;
-  })
+  },[count])
+  useEffect(()=>{
+    let id = document.querySelector('#videojs');
+    console.log(id);
+  },[])
   const handleScroll = (index,nums)=>{
     let doc = document.getElementsByClassName('data-wraper')[0];
     console.log(doc);
@@ -37,7 +43,6 @@ function Hooks(props){
     }
     doc.scrollTop = `${40*(index-1)}`;
     console.log(doc.scrollTop,'22scrollTop22');
-
   }
   const renderData = (data)=>{
     return data && data.map((item,index,ary)=><div className="data-item" key = {item.id} onClick={()=>handleScroll(index,ary.length)}>
@@ -58,6 +63,7 @@ function Hooks(props){
           renderData(data)
         }
       </div>
+      <div id = "videojs"></div>
     </div>
   )
 }

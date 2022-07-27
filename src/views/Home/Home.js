@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent,useState, useEffect } from 'react';
 import * as XLSX from 'xlsx';
 
 // excel 转化为 json 数据
@@ -6,6 +6,7 @@ class Home extends PureComponent {
   constructor(props) {
     super(props);
   }
+  
   onImportExcel = file =>{
     const { files } = file.target;
     console.log(files,'file--');

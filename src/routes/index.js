@@ -1,16 +1,19 @@
-import React from "react";
+import React,{useState} from "react";
+import {Button} from "antd";
 import {
 	BrowserRouter as Router,
 	Switch,
 	Route,
 	Link,
+	useParams,
+	useRouteMatch,
 } from "react-router-dom";
 import Home from "../views/Home/Home.js";
 import Detail from "../views/Detail/Detail.js";
 import Hooks from "../views/Hooks";
-import D3 from '../views/D3';
 import TestEcharts from '../views/Echart';
 import TestReact from '../views/TestReact';
+import Gsap from "../views/Gsap/Gsap.js"
 
 import './router.css';
 const routerAry = [{
@@ -27,16 +30,20 @@ const routerAry = [{
 	component: Hooks,
 	key: 'hooks'
 }, {
-	path: '/d3',
-	component: D3,
-	key: 'd3'
-}, {
 	path: '/echart',
 	component: TestEcharts,
 	key: 'detail'
 }, {
 	path: '/testReact',
 	component: TestReact,
+	key: 'detail'
+}, {
+	path: '/topics',
+	component: Topics,
+	key: 'detail'
+}, {
+	path: '/gsap',
+	component: Gsap,
 	key: 'detail'
 }, {
 	path: '*',
@@ -66,13 +73,16 @@ const Routes = () => {
 						<Link to='/hooks'> test hooks</Link>
 					</li>
 					<li>
-						<Link to='/d3'> test D3 demo</Link>
-					</li>
-					<li>
 						<Link to='/echart'> test Echarts</Link>
 					</li>
 					<li>
 						<Link to='/testReact'> test React</Link>
+					</li>
+					<li>
+						<Link to="/topics">Topics</Link>
+					</li>
+					<li>
+						<Link to="/gsap">Gsap</Link>
 					</li>
 				</ul>
 				<Switch>
@@ -84,3 +94,23 @@ const Routes = () => {
 }
 export default Routes;
 
+function Topics(props) {
+	console.log(props);
+	let [num,setNum] = useState(0);
+	const changeNumber = ()=>{
+		let len = 5;
+		for(let i = 0;i<len;i++){
+			setTimeout(()=>{
+				setNum(i);
+				console.log(num);
+			},1000)
+		}
+	}
+	return (
+	  <div>
+		<h2>Topics</h2>
+		<h3>{num}</h3>
+		<Button onClick={changeNumber}>Number</Button>
+	</div>
+	);
+}

@@ -6,8 +6,10 @@ class TestReact extends Component {
 	constructor(props) {
 		super(props);
 		this.addCount = this.addCount.bind(this);
+		this.fileRef = React.createRef();
 		this.state = {
-			testCount: 0
+			testCount: 0,
+			files: [],
 		}
 		console.log('constructor----1');
 	}
@@ -51,13 +53,30 @@ class TestReact extends Component {
 			}
 		})
 	}
+
+	handleSubmit = (e) => {
+		console.log('我们可以获得file的值为', this.fileRef.current.files);
+		e.preventDefault();
+	}
+	handleFile = (e) => {
+		console.log(e.target.files);
+		const files = [...e.target.files];
+		console.log(files);
+		this.setState({
+			files
+		})
+	}
 	render() {
 		let { testCount } = this.state;
 		console.log('render----3');
 		return <div>
-			<Button type='primary' onClick={this.addCount}>addCount</Button>
-			<Button type='primary' onClick={this.resetCount} style={{ marginLeft: 20 }}>resetCount</Button>
-			<div>{testCount}</div>
+			{/* <Button type='primary' onClick={this.addCount}>addCount</Button>
+				<Button type='primary' onClick={this.resetCount} style={{ marginLeft: 20 }}>resetCount</Button>
+				<div>{testCount}</div> */}
+			<form onSubmit={(e) => this.handleSubmit(e)}>
+				<input type='file' ref={this.fileRef} />
+				<input type="submit" value="提交" />
+			</form>
 		</div>
 	}
 }
